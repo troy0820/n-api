@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "0.11"
+
+before_install:
+  - wget https://raw.githubusercontent.com/visionmedia/n/master/bin/n -qO n
+  - chmod +x n
+  - sudo cp n /usr/local/bin/n

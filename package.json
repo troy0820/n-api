@@ -1,0 +1,41 @@
+{
+  "name": "n-api",
+  "version": "1.2.9",
+  "description": "node.js api for running \"n\" commands",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha spec.js -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tjwebb/n-api.git"
+  },
+  "keywords": [
+    "n",
+    "nvm",
+    "node",
+    "api",
+    "version",
+    "manager",
+    "n-api"
+  ],
+  "author": "Travis Webb <me@traviswebb.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjwebb/n-api/issues"
+  },
+  "homepage": "https://github.com/tjwebb/n-api",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "npmlog": "^0.1.1",
+    "semver": "^2.3.1"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">= 0.11.12"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.20.1"
+  }
+}
