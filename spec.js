@@ -1,7 +1,22 @@
 var n = require('./');
 var assert = require('chai').assert;
+var exec = require('child_process').execSync;
+
+log.level = 'verbose';
 
 describe('n-api', function () {
+  describe('#constructor', function () {
+    it('should set global node version', function () {
+      n('0.8.x');
+      
+      assert.match(exec('node -v').toString(), /v0\.8/);
+    });
+
+    afterEach(function () {
+      n('latest');
+    });
+
+  });
   describe('#ls', function () {
 
     it('should return full node version list', function () {

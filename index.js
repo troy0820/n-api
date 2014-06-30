@@ -10,14 +10,22 @@ var semver = require('semver');
 global.cwd = process.cwd();
 global.log = require('npmlog');
 
-log.level = 'verbose';
+function sanitize (version) {
+  return version.replace(/\.x/, '');
+}
 
-var n = exports;
+var n = function (version) {
+  log.info('n', sanitize(version));
+  return exec('n ' + sanitize(version)).toString().trim();
+};
 
 /**
  * Returns a list of the available node versions
  */
 n.ls = function () {
+  log.info('n ls');
   var ls = exec('n ls').toString().trim();
   return ls.match(/(\d+\.\d+\.\d+)/g);
 };
+
+module.exports = n;
