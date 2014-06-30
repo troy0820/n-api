@@ -5,15 +5,31 @@ var exec = require('child_process').execSync;
 log.level = 'verbose';
 
 describe('n-api', function () {
+  afterEach(function () {
+    n('latest');
+  });
+
   describe('#constructor', function () {
     it('should set global node version', function () {
       n('0.8.x');
       
       assert.match(exec('node -v').toString(), /v0\.8/);
+      assert.match(n.current(), /0\.8/);
     });
 
-    afterEach(function () {
-      n('latest');
+  });
+  describe('#current', function () {
+    it('should return the current node version (0.8.x)', function () {
+      n('0.8.x');
+      assert.match(n.current(), /0\.8\./);
+    });
+    it('should return the current node version (0.10)', function () {
+      n('0.10');
+      assert.match(n.current(), /0\.10\./);
+    });
+    it('should return the current node version (0.11.13)', function () {
+      n('0.11.13');
+      assert.match(n.current(), /0\.11\.13/);
     });
 
   });

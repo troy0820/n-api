@@ -28,4 +28,8 @@ n.ls = function () {
   return ls.match(/(\d+\.\d+\.\d+)/g);
 };
 
+n.current = function () {
+  return exec('node -v').toString().trim().replace(/^v/, '');
+};
+
 module.exports = n;
