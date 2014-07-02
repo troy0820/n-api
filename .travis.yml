@@ -9,6 +9,7 @@ before_install:
 
 install:
   - n latest
+  - npm install
 
 script:
   - npm test
