@@ -6,3 +6,9 @@ before_install:
   - chmod +x n
   - sudo cp n /usr/local/bin/n
   - sudo chmod -R a+xw /usr/local
+
+install:
+  - npm install
+
+script:
+  - npm test
