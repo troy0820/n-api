@@ -8,7 +8,7 @@ before_install:
   - sudo chmod -R a+xw /usr/local
 
 install:
-  - npm install
+  - n latest
 
 script:
   - npm test
