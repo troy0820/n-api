@@ -1,13 +1,13 @@
 var n = require('../');
 var assert = require('chai').assert;
 var exec = require('child_process').execSync;
+var path = require('path');
 
 log.level = 'verbose';
 
 describe('n-api', function () {
-  afterEach(function () {
-    n('latest');
-  });
+  beforeEach(function () { n(process.version); });
+  afterEach(function () { n(process.version); });
 
   describe('#constructor', function () {
     it('should set global node version', function () {
@@ -59,6 +59,19 @@ describe('n-api', function () {
       n('0.10.26');
       n('latest');
       assert.equal(n.use.sync('0.10.26', 'spec/use-process.js').toString().trim(), 'v0.10.26');
+    });
+  });
+
+  describe('#bin', function () {
+    it('should return path of current node', function () {
+      assert.equal(n.bin(process.version), path.resolve('/usr/local/n/versions', process.version.replace('v', ''), 'bin/node'));
+    });
+    it('should return path of another installed node', function () {
+      n('0.10.26');
+      assert.equal(n.bin('0.10.26'), '/usr/local/n/versions/0.10.26/bin/node');
+    });
+    it('returns null if node not installed', function () {
+      assert.equal(n.bin('0.6.0'), null);
     });
   });
 });

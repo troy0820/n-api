@@ -29,6 +29,16 @@ n.use = {
   }
 };
 
+n.bin = function (version) {
+  log.verbose('bin', version);
+  try {
+    return proc.execSync('n bin ' + sanitize(version)).toString().trim();
+  }
+  catch (e) {
+    return null;
+  }
+};
+
 /**
  * Returns a list of the available node versions
  */
