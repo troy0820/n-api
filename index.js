@@ -14,9 +14,9 @@ log.heading = 'n';
 function fixPermissions () {
   var isRoot = process.getuid && process.getuid() === 0;
   if (isRoot) {
-    // as in https://github.com/xtuple/xtuple-server/blob/070116365dff4dec4bfbb4345562dfd12c38c558/bootstrap.sh#L74
     try {
-      var chmod = proc.execSync('chmod -Rf a+wr /usr/local/{share/systemtap,share/man,bin,lib/node*,include/node*,n*}',
+      // as in https://github.com/xtuple/xtuple-server/blob/070116365dff4dec4bfbb4345562dfd12c38c558/bootstrap.sh#L74
+      var chmod = proc.execSync('sudo chmod -Rf a+wr /usr/local/{share/systemtap,share/man,bin,lib/node*,include/node*,n*}',
         { stdio: 'pipe' });
     }
     catch (e) {
