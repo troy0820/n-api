@@ -11,13 +11,27 @@ global.cwd = process.cwd();
 global.log = require('npmlog');
 log.heading = 'n';
 
+function fixPermissions () {
+  var isRoot = process.getuid && process.getuid() === 0;
+  if (isRoot) {
+    // as in https://github.com/xtuple/xtuple-server/blob/070116365dff4dec4bfbb4345562dfd12c38c558/bootstrap.sh#L74
+    proc.execSync('chmod -Rf a+wr /usr/local/{share/systemtap,share/man,bin,lib/node*,include/node*,n*}',
+      { stdio: 'ignore' });
+  }
+}
+
 function sanitize (version) {
+  if (_.isEmpty(version)) {
+    throw new TypeError('version is not valid');
+  }
   return version.replace(/\.x/, '');
 }
 
 var n = function (version) {
   log.info('n', sanitize(version));
-  return proc.execSync('n ' + sanitize(version)).toString().trim();
+  var result = proc.execSync('n ' + sanitize(version)).toString().trim();
+  fixPermissions();
+  return result;
 };
 
 n.use = {
