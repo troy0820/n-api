@@ -16,12 +16,12 @@ function fixPermissions () {
   if (isRoot) {
     try {
       // as in https://github.com/xtuple/xtuple-server/blob/070116365dff4dec4bfbb4345562dfd12c38c558/bootstrap.sh#L74
-      var chmod = proc.execSync('sudo chmod -Rf a+wr /usr/local/{share/systemtap,share/man,bin,lib/node*,include/node*,n*}',
-        { stdio: 'pipe' });
+      proc.execSync('sudo mkdir -p /usr/local/{share/man,bin,lib/node,lib/node_modules,include/node,n/versions}');
+      proc.execSync('sudo chmod -Rf a+wr /usr/local/{share/systemtap,share/man,bin,lib/node*,include/node*,n*}');
     }
     catch (e) {
       log.verbose('n-api', 'error message', e.message);
-      log.verbose('n-api', 'chmod', chmod);
+      log.verbose('n-api', 'error', e.stack.split('\n'));
     }
   }
 }
