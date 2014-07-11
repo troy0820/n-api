@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/tjwebb/n-api",
   "dependencies": {
+    "home-dir": "^0.2.0",
     "lodash": "^2.4.1",
     "npmlog": "^0.1.1",
     "semver": "^2.3.1"

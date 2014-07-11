@@ -4,8 +4,10 @@
 'use strict';
 
 var _ = require('lodash');
+var path = require('path');
 var proc = require('child_process');
 var semver = require('semver');
+var home = require('home-dir');
 
 global.cwd = process.cwd();
 global.log = require('npmlog');
@@ -18,6 +20,8 @@ function fixPermissions () {
       // as in https://github.com/xtuple/xtuple-server/blob/070116365dff4dec4bfbb4345562dfd12c38c558/bootstrap.sh#L74
       proc.spawnSync('mkdir', [ '-p', '/usr/local/{share/man,bin,lib/node,lib/node_modules,include/node,n/versions}' ]);
       proc.spawnSync('chmod', [ '-Rf', '777', '/usr/local/{share/systemtap,share/man,bin,lib/node*,include/node*,n*}' ]);
+      proc.spawnSync('chmod', [ '-Rf', '777', path.resolve(home(), '.npm') ]);
+      proc.spawnSync('chmod', [ '-Rf', '777', path.resolve(home(), 'tmp') ]);
     }
     catch (e) {
       log.verbose('n-api', 'error message', e.message);
