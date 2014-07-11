@@ -30,7 +30,7 @@
     "npmlog": "^0.1.1",
     "semver": "^2.3.1"
   },
-  "engineStrict": true,
+  "engineStrict": false,
   "engines": {
     "node": ">= 0.11.12"
   },
