@@ -17,11 +17,11 @@ function fixPermissions () {
     try {
       // as in https://github.com/xtuple/xtuple-server/blob/070116365dff4dec4bfbb4345562dfd12c38c558/bootstrap.sh#L74
       proc.execSync('sudo mkdir -p /usr/local/{share/man,bin,lib/node,lib/node_modules,include/node,n/versions}');
-      proc.execSync('sudo chmod -Rf a+wr /usr/local/{share/systemtap,share/man,bin,lib/node*,include/node*,n*}');
+      proc.execSync('sudo chmod -Rf 777 /usr/local/{share/systemtap,share/man,bin,lib/node*,include/node*,n*}');
     }
     catch (e) {
       log.verbose('n-api', 'error message', e.message);
-      log.verbose('n-api', 'error', e.stack.split('\n'));
+      log.silly('n-api', 'error', e.stack.split('\n'));
     }
   }
 }
