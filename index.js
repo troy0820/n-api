@@ -38,7 +38,7 @@ function sanitize (version) {
 }
 
 var n = function (version) {
-  log.info('n', sanitize(version));
+  log.verbose('n', sanitize(version));
   var result = proc.execSync('n ' + sanitize(version)).toString().trim();
   fixPermissions();
   return result;
@@ -46,8 +46,7 @@ var n = function (version) {
 
 n.use = {
   sync: function (version, cmd) {
-    log.info('use.sync', version);
-    log.verbose('use.sync', cmd);
+    log.verbose('use.sync', version, cmd);
     
     return proc.execSync('n use ' + sanitize(version) + ' ' + cmd);
   }
@@ -67,7 +66,7 @@ n.bin = function (version) {
  * Returns a list of the available node versions
  */
 n.ls = function () {
-  log.info('ls');
+  log.verbose('ls');
   var ls = proc.execSync('n ls').toString().trim();
   return ls.match(/(\d+\.\d+\.\d+)/g);
 };
