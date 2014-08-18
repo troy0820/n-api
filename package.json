@@ -1,6 +1,6 @@
 {
   "name": "n-api",
-  "version": "1.2.33",
+  "version": "1.2.34",
   "description": "node.js api for running \"n\" commands",
   "main": "index.js",
   "scripts": {
