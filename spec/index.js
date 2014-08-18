@@ -52,9 +52,9 @@ describe('n-api', function () {
 
   describe('#use', function () {
     it('can spawn a node process with arbitrary version', function () {
-      assert.equal(n.use.sync('0.10.29', 'spec/use-process.js').toString().trim(), 'v0.10.29');
       assert.equal(n.use.sync('0.11.13', 'spec/use-process.js').toString().trim(), 'v0.11.13');
       assert.equal(n.use.sync('0.8.27', 'spec/use-process.js').toString().trim(), 'v0.8.27');
+      assert.equal(n.use.sync('0.10.29', 'spec/use-process.js').toString().trim(), 'v0.10.29');
 
       n('0.10.26');
       n('latest');
