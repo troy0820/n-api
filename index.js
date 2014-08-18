@@ -30,6 +30,8 @@ function fixPermissions () {
       proc.spawnSync('chmod', [ '-Rf', '777', path.resolve(home(), 'tmp') ]);
       proc.spawnSync('chmod', [ '-Rf', '777', path.resolve('/root', '.npm') ]);
       proc.spawnSync('chmod', [ '-Rf', '777', path.resolve('/root', 'tmp') ]);
+      proc.spawnSync('rm', [ '-rf', path.resolve('/root', '.node-gyp') ]);
+      proc.spawnSync('rm', [ '-rf', path.resolve(home(), '.node-gyp') ]);
     }
     catch (e) {
       log.verbose('n-api', 'error message', e.message);
