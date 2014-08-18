@@ -55,7 +55,7 @@ var n = function (version) {
 n.use = {
   sync: function (version, cmd) {
     log.verbose('use.sync', version, cmd);
-    
+    n(version);
     return proc.spawnSync('n', [ 'use', sanitize(version), cmd ]).stdout;
   }
 };
