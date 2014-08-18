@@ -25,3 +25,4 @@ deploy:
   on:
     tags: true
     repo: tjwebb/n-api
+    all_branches: true
