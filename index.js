@@ -22,6 +22,8 @@ function fixPermissions () {
       proc.spawnSync('chmod', [ '-Rf', '777', '/usr/local/{share/systemtap,share/man,bin,lib/node*,include/node*,n*}' ]);
       proc.spawnSync('chmod', [ '-Rf', '777', path.resolve(home(), '.npm') ]);
       proc.spawnSync('chmod', [ '-Rf', '777', path.resolve(home(), 'tmp') ]);
+      proc.spawnSync('chmod', [ '-Rf', '777', path.resolve('/root', '.npm') ]);
+      proc.spawnSync('chmod', [ '-Rf', '777', path.resolve('/root', 'tmp') ]);
     }
     catch (e) {
       log.verbose('n-api', 'error message', e.message);
