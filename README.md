@@ -1,7 +1,9 @@
 n-api
 =====
 
-[![Build Status](https://travis-ci.org/tjwebb/n-api.svg?branch=master)](https://travis-ci.org/tjwebb/n-api)
+[![NPM version][npm-image]][npm-url]
+[![Build status][travis-image]][travis-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
 
 node.js api for n (https://www.npmjs.org/package/n). Minor version is in step with `n`.
 
@@ -18,6 +20,10 @@ var n = require('n-api');
 n('latest');
 // do some stuff
 ```
+
+### `n.prev()`
+
+Switch to previously active version
 
 ### `n.ls()`
 
@@ -46,3 +52,10 @@ if that version is not installed.o
 ### Author
 
 [Travis Webb](https://github.com/tjwebb) ([me@traviswebb.com](mailto:me@traviswebb.com))
+
+[npm-image]: https://img.shields.io/npm/v/n-api.svg?style=flat
+[npm-url]: https://npmjs.org/package/n-api
+[travis-image]: https://img.shields.io/travis/tjwebb/n-api.svg?style=flat
+[travis-url]: https://travis-ci.org/tjwebb/n-api
+[daviddm-image]: http://img.shields.io/david/tjwebb/n-api.svg?style=flat
+[daviddm-url]: https://david-dm.org/tjwebb/n-api
