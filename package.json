@@ -4,7 +4,7 @@
   "description": "node.js api for running \"n\" commands",
   "main": "index.js",
   "scripts": {
-    "test": "mocha spec -R spec"
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",

@@ -81,8 +81,19 @@ n.ls = function () {
   return ls.match(/(\d+\.\d+\.\d+)/g);
 };
 
+/**
+ * Returns the currently active version
+ */
 n.current = function () {
   return proc.execSync('node -v').toString().trim().replace(/^v/, '');
+};
+
+/**
+ * Switch to the previously active version
+ */
+n.prev = function () {
+  proc.execSync('n prev');
+  return n.current();
 };
 
 module.exports = n;

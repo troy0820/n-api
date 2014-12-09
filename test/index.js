@@ -18,6 +18,18 @@ describe('n-api', function () {
     });
 
   });
+  describe('#prev', function () {
+    before(function () {
+      n('0.10');
+      n('0.8');
+    });
+    it('should switch back to 0.8', function () {
+      n.prev();
+      assert.match(exec('node -v').toString(), /v0\.8/);
+      assert.match(n.current(), /0\.8/);
+    });
+
+  });
   describe('#current', function () {
     it('should return the current node version (0.8.x)', function () {
       n('0.8.x');
