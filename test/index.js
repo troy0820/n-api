@@ -52,7 +52,7 @@ describe('n-api', function () {
 
       assert.operator(list.length, '>', 10);
     });
-    it('should contain specific versions', function () {
+    it('should contain testific versions', function () {
       var list = n.ls();
 
       assert.include(list, '0.11.13');
@@ -70,13 +70,13 @@ describe('n-api', function () {
       n('0.10.29');
     });
     it('can spawn a node process with arbitrary version', function () {
-      assert.equal(n.use.sync('0.11.13', 'spec/use-process.js').toString().trim(), 'v0.11.13');
-      assert.equal(n.use.sync('0.8.27', 'spec/use-process.js').toString().trim(), 'v0.8.27');
-      assert.equal(n.use.sync('0.10.29', 'spec/use-process.js').toString().trim(), 'v0.10.29');
+      assert.equal(n.use.sync('0.11.13', 'test/use-process.js').toString().trim(), 'v0.11.13');
+      assert.equal(n.use.sync('0.8.27', 'test/use-process.js').toString().trim(), 'v0.8.27');
+      assert.equal(n.use.sync('0.10.29', 'test/use-process.js').toString().trim(), 'v0.10.29');
 
       n('0.10.26');
       n('latest');
-      assert.equal(n.use.sync('0.10.26', 'spec/use-process.js').toString().trim(), 'v0.10.26');
+      assert.equal(n.use.sync('0.10.26', 'test/use-process.js').toString().trim(), 'v0.10.26');
     });
   });
 
